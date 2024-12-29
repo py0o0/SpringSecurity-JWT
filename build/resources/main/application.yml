@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+# database
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jwtlogin?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: none #자동 테이블 생성
+
+# jwt 대칭키
+jwt:
+  secret: "abcd1234efgh5678ijkl91011mnop1213qrst1415uvwx1617yzab1819cdef2021"
