@@ -45,10 +45,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter { //작성
                                             Authentication auth){
         String username = auth.getName();
 
-        Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
-        Iterator<? extends GrantedAuthority> authoritiesIterator = authorities.iterator();
-        GrantedAuthority authority = authoritiesIterator.next();
-        String role = authority.getAuthority();                  //롤 확인
+        String role = auth.getAuthorities().iterator().next().getAuthority();                //롤 확인
 
         String access = jwtUtil.createJwt("access", username, role, 6000L);
         String refresh = jwtUtil.createJwt("refresh", username, role, 3600000L);
